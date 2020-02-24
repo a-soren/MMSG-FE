@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
@@ -14,7 +15,8 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml')
+    Axios
+      .get('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml')
       .then((response) => {
         console.log(response)
       }).catch((err) => {
