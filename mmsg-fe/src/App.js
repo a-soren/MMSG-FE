@@ -1,10 +1,31 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { Dropdown } from 'react-bootstrap';
 
 
 function App() {
+  const [amount, setAmount] = useState();
+  const [newAmount, setNewAmount] = useState();
+  const handleChange = (e) => {
+    setAmount(e.target.value)
+    // console.log(typeof(amount));
+  }
+
+  useEffect(() => {
+    axios.get('https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml')
+      .then((response) => {
+        console.log(response)
+      }).catch((err) => {
+        console.log(err)
+      })
+  }, [newAmount])
+
+  // const submitHandler = (e)=>{
+  //   e.preventDefault();
+
+  // }
   return (
     <div className="Converter">
       <Dropdown>
@@ -45,13 +66,16 @@ function App() {
           <Dropdown.Item >SGD</Dropdown.Item>
           <Dropdown.Item >THB</Dropdown.Item>
           <Dropdown.Item >ZAR</Dropdown.Item>
+          <Dropdown.Item >EUR</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
       <form>
-        <input type='text'
+        <input
+          type='number'
           placeholder='The amount you want to convert'
-          name='Base amount' />
+          name='amount'
+          onChange={handleChange} />
 
       </form>
 
@@ -94,10 +118,13 @@ function App() {
           <Dropdown.Item >SGD</Dropdown.Item>
           <Dropdown.Item >THB</Dropdown.Item>
           <Dropdown.Item >ZAR</Dropdown.Item>
+          <Dropdown.Item >EUR</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
 
-      <button type='submit'>Submit</button>
+      <button type='submit'
+      // onClick={submitHandler}
+      >Submit</button>
 
     </div>
   );
