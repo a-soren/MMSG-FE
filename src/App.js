@@ -7,10 +7,11 @@ import styled from 'styled-components';
 
 
 const Button = styled.button`
-  background: transparent;
+  background:#4b6286;
   border-radius: 3px;
-  border: 2px solid green;
-  color:green;
+  border: 2px solid black;
+  color:white;
+  font-family:Roboto, Oxygen;
   margin-left: 150px;
   padding: 0.25em 1em;
 `
@@ -30,6 +31,32 @@ const Red = styled.option`
 `
 const Input = styled.input`
   margin-left:100px;
+`
+const Div = styled.div`
+  border: 4px solid #4b6286;
+  border-radius:25px;
+  width:750px;;
+  height:500px;
+  font-family:Roboto, Oxygen;
+  margin:15%;
+`
+const Card = styled.div`
+  display:flex;
+  justify-content:center;
+  height:325px;
+  background:#4b6286;
+  border-radius:15px;
+`
+const H2 = styled.h2`
+  width: 240px;
+  border:2px solid black;
+  border-radius:25px;
+  padding:35px;
+  display:flex;
+  text-align:center;
+`
+const H1 = styled.h1`
+  text-decoration:underline;
 `
 
 function App() {
@@ -58,22 +85,21 @@ function App() {
   const submitHandler = (e) => {
     e.preventDefault();
     console.log('everything we need', currency.base_currency);
-  }
-
-  useEffect(() => {
     Axios
       .get(`https://mmsg-project.herokuapp.com/conversion/${currency.base_currency}/${currency.target_currency}/${currency.base_amount}`)
       .then((response) => {
         console.log('im right here', response)
-        setCurrency.target_amount(response.data.finalAmount)
+        setCurrency({ ...currency, target_amount: response.data.finalAmount })
       }).catch((err) => {
         console.log(err)
       })
-  }, [])
+  }
+  useEffect(() => {
+  }, [currency.target_amount])
 
 
   return (
-    <div className="Converter">
+    <Div className="Converter">
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           Base Currency
@@ -115,6 +141,7 @@ function App() {
           <Option onClick={changeBase} value="EUR">EUR</Option>
         </Dropdown.Menu>
       </Dropdown>
+      <br></br>
       <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
           Target Currency
@@ -156,7 +183,7 @@ function App() {
           <Red onClick={changeTarget} value="EUR">EUR</Red>
         </Dropdown.Menu>
       </Dropdown>
-
+      <br></br>
       <form>
         <Input
           type='number'
@@ -166,17 +193,33 @@ function App() {
           onChange={handleChange} />
 
       </form>
+      <br></br>
 
       <Button type='submit'
         onClick={submitHandler}
       >Submit</Button>
 
-      <div>
-        <h2>The Conversion Rate is:</h2>
-        <h3>{currency.base_amount}{currency.base_currency} is equal to {currency.target_amount}{currency.target_currency}</h3>
+      <Card>
 
-      </div>
-    </div>
+        <H2>
+          The Conversion Rate
+          <br></br>
+          {currency.base_amount}
+          <br></br>
+          {currency.base_currency}
+          <br></br>
+          <br></br>
+          is equal to
+          <br></br>
+          <br></br>
+          {currency.target_amount}
+          <br></br>
+          {currency.target_currency}
+          <br></br>
+        </H2>
+
+      </Card>
+    </Div >
   );
 }
 
