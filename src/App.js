@@ -7,27 +7,31 @@ import styled from 'styled-components';
 
 
 const Button = styled.button`
-  background:#4b6286;
+  background:transparent;
   border-radius: 3px;
-  border: 2px solid black;
-  color:white;
+  border: 2px solid #4b6286;
+  color:#4b6286;
   font-family:Roboto, Oxygen;
-  margin-left: 150px;
+  margin-left: 335px;
   padding: 0.25em 1em;
 `
-const Option = styled.option`
+const Ul = styled.ul`
+  /* display:none; */
+  /* border:4px solid purple; */
+  
+`
+const Main = styled.option`
   width: 35px;
   height:20px;
   color:blue;
   border-radius:3px;
   border: 2px solid blue;
 `
-const Red = styled.option`
+const Second = styled.option`
   border-radius:3px;
   border:2px solid red;
   width: 35px;
   height:20px;
-  margin-left:235px;
 `
 const Input = styled.input`
   margin-left:275px;
@@ -45,12 +49,15 @@ const Card = styled.div`
   display:flex;
   justify-content:center;
   height:325px;
+  width:350px;
   background:#4b6286;
   border-radius:15px;
+  margin-left:195px;
 `
 const H2 = styled.h2`
   width: 240px;
-  border:2px solid black;
+  border:2px solid white;
+  color:white;
   border-radius:25px;
   padding:35px;
   display:flex;
@@ -100,45 +107,45 @@ function App() {
   return (
     <Div className="Converter">
       <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <button variant="success" id="dropdown-basic">
           Base Currency
-        </Dropdown.Toggle>
+        </button>
 
-        <Dropdown.Menu>
-          <Option onClick={changeBase} value="USD">USD</Option>
-          <Option onClick={changeBase} value="JPY">JPY</Option>
-          <Option onClick={changeBase} value="BGN">BGN</Option>
-          <Option onClick={changeBase} value="CZK">CZK</Option>
-          <Option onClick={changeBase} value="DKK">DKK</Option>
-          <Option onClick={changeBase} value="GBP">GBP</Option>
-          <Option onClick={changeBase} value="HUF">HUF</Option>
-          <Option onClick={changeBase} value="PLN">PLN</Option>
-          <Option onClick={changeBase} value="RON">RON</Option>
-          <Option onClick={changeBase} value="SEK">SEK</Option>
-          <Option onClick={changeBase} value="CHF">CHF</Option>
-          <Option onClick={changeBase} value="ISK">ISK</Option>
-          <Option onClick={changeBase} value="NOK">NOK</Option>
-          <Option onClick={changeBase} value="HRK">HRK</Option>
-          <Option onClick={changeBase} value="RUB">RUB</Option>
-          <Option onClick={changeBase} value="TRY">TRY</Option>
-          <Option onClick={changeBase} value="AUD">AUD</Option>
-          <Option onClick={changeBase} value="BRL">BRL</Option>
-          <Option onClick={changeBase} value="CAD">CAD</Option>
-          <Option onClick={changeBase} value="CNY">CNY</Option>
-          <Option onClick={changeBase} value="HKD">HKD</Option>
-          <Option onClick={changeBase} value="IDR">IDR</Option>
-          <Option onClick={changeBase} value="ILS">ILS</Option>
-          <Option onClick={changeBase} value="INR">INR</Option>
-          <Option onClick={changeBase} value="KRW">KRW</Option>
-          <Option onClick={changeBase} value="MXN">MXN</Option>
-          <Option onClick={changeBase} value="MYR">MYR</Option>
-          <Option onClick={changeBase} value="NZD">NZD</Option>
-          <Option onClick={changeBase} value="PHP">PHP</Option>
-          <Option onClick={changeBase} value="SGD">SGD</Option>
-          <Option onClick={changeBase} value="THB">THB</Option>
-          <Option onClick={changeBase} value="ZAR">ZAR</Option>
-          <Option onClick={changeBase} value="EUR">EUR</Option>
-        </Dropdown.Menu>
+        <Ul>
+          <Main onClick={changeBase} value="USD">USD</Main >
+          <Main onClick={changeBase} value="JPY">JPY</Main >
+          <Main onClick={changeBase} value="BGN">BGN</Main >
+          <Main onClick={changeBase} value="CZK">CZK</Main >
+          <Main onClick={changeBase} value="DKK">DKK</Main >
+          <Main onClick={changeBase} value="GBP">GBP</Main >
+          <Main onClick={changeBase} value="HUF">HUF</Main >
+          <Main onClick={changeBase} value="PLN">PLN</Main >
+          <Main onClick={changeBase} value="RON">RON</Main >
+          <Main onClick={changeBase} value="SEK">SEK</Main >
+          <Main onClick={changeBase} value="CHF">CHF</Main >
+          <Main onClick={changeBase} value="ISK">ISK</Main >
+          <Main onClick={changeBase} value="NOK">NOK</Main >
+          <Main onClick={changeBase} value="HRK">HRK</Main >
+          <Main onClick={changeBase} value="RUB">RUB</Main >
+          <Main onClick={changeBase} value="TRY">TRY</Main >
+          <Main onClick={changeBase} value="AUD">AUD</Main >
+          <Main onClick={changeBase} value="BRL">BRL</Main >
+          <Main onClick={changeBase} value="CAD">CAD</Main >
+          <Main onClick={changeBase} value="CNY">CNY</Main >
+          <Main onClick={changeBase} value="HKD">HKD</Main >
+          <Main onClick={changeBase} value="IDR">IDR</Main >
+          <Main onClick={changeBase} value="ILS">ILS</Main >
+          <Main onClick={changeBase} value="INR">INR</Main >
+          <Main onClick={changeBase} value="KRW">KRW</Main >
+          <Main onClick={changeBase} value="MXN">MXN</Main >
+          <Main onClick={changeBase} value="MYR">MYR</Main >
+          <Main onClick={changeBase} value="NZD">NZD</Main >
+          <Main onClick={changeBase} value="PHP">PHP</Main >
+          <Main onClick={changeBase} value="SGD">SGD</Main >
+          <Main onClick={changeBase} value="THB">THB</Main >
+          <Main onClick={changeBase} value="ZAR">ZAR</Main >
+          <Main onClick={changeBase} value="EUR">EUR</Main >
+        </Ul>
       </Dropdown>
       <br></br>
       <Dropdown>
@@ -146,41 +153,41 @@ function App() {
           Target Currency
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          <Red onClick={changeTarget} value="USD">USD</Red>
-          <Red onClick={changeTarget} value="JPY">JPY</Red>
-          <Red onClick={changeTarget} value="BGN">BGN</Red>
-          <Red onClick={changeTarget} value="CZK">CZK</Red>
-          <Red onClick={changeTarget} value="DKK">DKK</Red>
-          <Red onClick={changeTarget} value="GBP">GBP</Red>
-          <Red onClick={changeTarget} value="HUF">HUF</Red>
-          <Red onClick={changeTarget} value="PLN">PLN</Red>
-          <Red onClick={changeTarget} value="RON">RON</Red>
-          <Red onClick={changeTarget} value="SEK">SEK</Red>
-          <Red onClick={changeTarget} value="CHF">CHF</Red>
-          <Red onClick={changeTarget} value="ISK">ISK</Red>
-          <Red onClick={changeTarget} value="NOK">NOK</Red>
-          <Red onClick={changeTarget} value="HRK">HRK</Red>
-          <Red onClick={changeTarget} value="RUB">RUB</Red>
-          <Red onClick={changeTarget} value="TRY">TRY</Red>
-          <Red onClick={changeTarget} value="AUD">AUD</Red>
-          <Red onClick={changeTarget} value="BRL">BRL</Red>
-          <Red onClick={changeTarget} value="CAD">CAD</Red>
-          <Red onClick={changeTarget} value="CNY">CNY</Red>
-          <Red onClick={changeTarget} value="HKD">HKD</Red>
-          <Red onClick={changeTarget} value="IDR">IDR</Red>
-          <Red onClick={changeTarget} value="ILS">ILS</Red>
-          <Red onClick={changeTarget} value="INR">INR</Red>
-          <Red onClick={changeTarget} value="KRW">KRW</Red>
-          <Red onClick={changeTarget} value="MXN">MXN</Red>
-          <Red onClick={changeTarget} value="MYR">MYR</Red>
-          <Red onClick={changeTarget} value="NZD">NZD</Red>
-          <Red onClick={changeTarget} value="PHP">PHP</Red>
-          <Red onClick={changeTarget} value="SGD">SGD</Red>
-          <Red onClick={changeTarget} value="THB">THB</Red>
-          <Red onClick={changeTarget} value="ZAR">ZAR</Red>
-          <Red onClick={changeTarget} value="EUR">EUR</Red>
-        </Dropdown.Menu>
+        <Ul>
+          <Second onClick={changeTarget} value="USD">USD</Second >
+          <Second onClick={changeTarget} value="JPY">JPY</Second >
+          <Second onClick={changeTarget} value="BGN">BGN</Second >
+          <Second onClick={changeTarget} value="CZK">CZK</Second >
+          <Second onClick={changeTarget} value="DKK">DKK</Second >
+          <Second onClick={changeTarget} value="GBP">GBP</Second >
+          <Second onClick={changeTarget} value="HUF">HUF</Second >
+          <Second onClick={changeTarget} value="PLN">PLN</Second >
+          <Second onClick={changeTarget} value="RON">RON</Second >
+          <Second onClick={changeTarget} value="SEK">SEK</Second >
+          <Second onClick={changeTarget} value="CHF">CHF</Second >
+          <Second onClick={changeTarget} value="ISK">ISK</Second >
+          <Second onClick={changeTarget} value="NOK">NOK</Second >
+          <Second onClick={changeTarget} value="HRK">HRK</Second >
+          <Second onClick={changeTarget} value="RUB">RUB</Second >
+          <Second onClick={changeTarget} value="TRY">TRY</Second >
+          <Second onClick={changeTarget} value="AUD">AUD</Second >
+          <Second onClick={changeTarget} value="BRL">BRL</Second >
+          <Second onClick={changeTarget} value="CAD">CAD</Second >
+          <Second onClick={changeTarget} value="CNY">CNY</Second >
+          <Second onClick={changeTarget} value="HKD">HKD</Second >
+          <Second onClick={changeTarget} value="IDR">IDR</Second >
+          <Second onClick={changeTarget} value="ILS">ILS</Second >
+          <Second onClick={changeTarget} value="INR">INR</Second >
+          <Second onClick={changeTarget} value="KRW">KRW</Second >
+          <Second onClick={changeTarget} value="MXN">MXN</Second >
+          <Second onClick={changeTarget} value="MYR">MYR</Second >
+          <Second onClick={changeTarget} value="NZD">NZD</Second >
+          <Second onClick={changeTarget} value="PHP">PHP</Second >
+          <Second onClick={changeTarget} value="SGD">SGD</Second >
+          <Second onClick={changeTarget} value="THB">THB</Second >
+          <Second onClick={changeTarget} value="ZAR">ZAR</Second >
+          <Second onClick={changeTarget} value="EUR">EUR</Second >
+        </Ul>
       </Dropdown>
       <br></br>
       <form>
