@@ -10,6 +10,8 @@
 
 * Choose the amount of your Base Currency you are converting into your Target Currency
     * this will give you back the current conversion rates for the two currencies
+* Click Submit to watch get the currency conversion for your chosen rates
+    * This will populate the display card automatically. 
 
 - - - -
 
