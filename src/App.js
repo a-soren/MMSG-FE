@@ -60,20 +60,12 @@ const H2 = styled.h2`
   display:flex;
   text-align:center;
 `
-const DropdownContent = styled.div`
-  display: none;
-  position: absolute;
-  z-index: 1;
-  `
-const DropdownMenu = styled.div`
-    position: relative;
-    display: flex;
-    &:hover ${DropdownContent} {
-      display: flex;
-      flex-flow: column;
-      margin-top:10px;
-    }
-  `
+const ContentDiv = styled.div`
+    position: absolute;
+    z-index: 1;
+  `;
+const DropdownDiv = styled.div`
+  `;
 const Center = styled.div`
     display:flex;
     justify-content: space-around;
@@ -101,9 +93,13 @@ function App() {
     console.log(e.target)
     setCurrency({ ...currency, target_currency: e.target.value })
   }
-  const [toggleState, setToggleState] = useState(true)
-  function toggle() {
-    setToggleState(!toggleState);
+  const [toggleBaseState, setToggleBaseState] = useState(true)
+  const [toggleTargetState, setToggleTargetState] = useState(true)
+  function toggleBase() {
+    setToggleBaseState(!toggleBaseState);
+  }
+  function toggleTarget() {
+    setToggleTargetState(!toggleTargetState);
   }
 
 
@@ -126,14 +122,14 @@ function App() {
   return (
     <Div className="Converter">
       <Center>
-        <h2 onClick={toggle}>
-          <div className="toggle">
-            {toggleState ? <span> Base Currency</span> :
-              <DropdownMenu>
+        <h2 onClick={toggleBase}>
+          <div className="toggleBase">
+            {toggleBaseState ? <span> Base Currency</span> :
+              <DropdownDiv>
                 <span >
                   Base Currency
         </span>
-                <DropdownContent>
+                <ContentDiv>
                   <Main onClick={changeBase} value="USD">USD</Main >
                   <Main onClick={changeBase} value="JPY">JPY</Main >
                   <Main onClick={changeBase} value="BGN">BGN</Main >
@@ -167,18 +163,18 @@ function App() {
                   <Main onClick={changeBase} value="THB">THB</Main >
                   <Main onClick={changeBase} value="ZAR">ZAR</Main >
                   <Main onClick={changeBase} value="EUR">EUR</Main >
-                </DropdownContent>
-              </DropdownMenu>}
+                </ContentDiv>
+              </DropdownDiv>}
           </div>
         </h2>
-        <h2 onClick={toggle}>
-          <div className="toggle">
-            {toggleState ? <span> Target Currency</span> :
-              <DropdownMenu>
+        <h2 onClick={toggleTarget}>
+          <div className="toggleTarget">
+            {toggleTargetState ? <span> Target Currency</span> :
+              <DropdownDiv>
                 <span >
                   Target Currency
         </span>
-                <DropdownContent>
+                <ContentDiv>
                   <Second onClick={changeTarget} value="USD">USD</Second >
                   <Second onClick={changeTarget} value="JPY">JPY</Second >
                   <Second onClick={changeTarget} value="BGN">BGN</Second >
@@ -212,8 +208,8 @@ function App() {
                   <Second onClick={changeTarget} value="THB">THB</Second >
                   <Second onClick={changeTarget} value="ZAR">ZAR</Second >
                   <Second onClick={changeTarget} value="EUR">EUR</Second >
-                </DropdownContent>
-              </DropdownMenu>}
+                </ContentDiv>
+              </DropdownDiv>}
           </div>
         </h2>
         <br></br>
