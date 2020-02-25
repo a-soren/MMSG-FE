@@ -101,6 +101,10 @@ function App() {
     console.log(e.target)
     setCurrency({ ...currency, target_currency: e.target.value })
   }
+  const [toggleState, setToggleState] = useState(true)
+  function toggle() {
+    setToggleState(!toggleState);
+  }
 
 
   const submitHandler = (e) => {
@@ -122,87 +126,96 @@ function App() {
   return (
     <Div className="Converter">
       <Center>
-        <DropdownMenu>
-          <span >
-            Base Currency
+        <h2 onClick={toggle}>
+          <div className="toggle">
+            {toggleState ? <span> Base Currency</span> :
+              <DropdownMenu>
+                <span >
+                  Base Currency
         </span>
-          <DropdownContent>
-            <Main onClick={changeBase} value="USD">USD</Main >
-            <Main onClick={changeBase} value="JPY">JPY</Main >
-            <Main onClick={changeBase} value="BGN">BGN</Main >
-            <Main onClick={changeBase} value="CZK">CZK</Main >
-            <Main onClick={changeBase} value="DKK">DKK</Main >
-            <Main onClick={changeBase} value="GBP">GBP</Main >
-            <Main onClick={changeBase} value="HUF">HUF</Main >
-            <Main onClick={changeBase} value="PLN">PLN</Main >
-            <Main onClick={changeBase} value="RON">RON</Main >
-            <Main onClick={changeBase} value="SEK">SEK</Main >
-            <Main onClick={changeBase} value="CHF">CHF</Main >
-            <Main onClick={changeBase} value="ISK">ISK</Main >
-            <Main onClick={changeBase} value="NOK">NOK</Main >
-            <Main onClick={changeBase} value="HRK">HRK</Main >
-            <Main onClick={changeBase} value="RUB">RUB</Main >
-            <Main onClick={changeBase} value="TRY">TRY</Main >
-            <Main onClick={changeBase} value="AUD">AUD</Main >
-            <Main onClick={changeBase} value="BRL">BRL</Main >
-            <Main onClick={changeBase} value="CAD">CAD</Main >
-            <Main onClick={changeBase} value="CNY">CNY</Main >
-            <Main onClick={changeBase} value="HKD">HKD</Main >
-            <Main onClick={changeBase} value="IDR">IDR</Main >
-            <Main onClick={changeBase} value="ILS">ILS</Main >
-            <Main onClick={changeBase} value="INR">INR</Main >
-            <Main onClick={changeBase} value="KRW">KRW</Main >
-            <Main onClick={changeBase} value="MXN">MXN</Main >
-            <Main onClick={changeBase} value="MYR">MYR</Main >
-            <Main onClick={changeBase} value="NZD">NZD</Main >
-            <Main onClick={changeBase} value="PHP">PHP</Main >
-            <Main onClick={changeBase} value="SGD">SGD</Main >
-            <Main onClick={changeBase} value="THB">THB</Main >
-            <Main onClick={changeBase} value="ZAR">ZAR</Main >
-            <Main onClick={changeBase} value="EUR">EUR</Main >
-          </DropdownContent>
-        </DropdownMenu>
-        <br></br>
-        <DropdownMenu>
-          <span >
-            Target Currency
+                <DropdownContent>
+                  <Main onClick={changeBase} value="USD">USD</Main >
+                  <Main onClick={changeBase} value="JPY">JPY</Main >
+                  <Main onClick={changeBase} value="BGN">BGN</Main >
+                  <Main onClick={changeBase} value="CZK">CZK</Main >
+                  <Main onClick={changeBase} value="DKK">DKK</Main >
+                  <Main onClick={changeBase} value="GBP">GBP</Main >
+                  <Main onClick={changeBase} value="HUF">HUF</Main >
+                  <Main onClick={changeBase} value="PLN">PLN</Main >
+                  <Main onClick={changeBase} value="RON">RON</Main >
+                  <Main onClick={changeBase} value="SEK">SEK</Main >
+                  <Main onClick={changeBase} value="CHF">CHF</Main >
+                  <Main onClick={changeBase} value="ISK">ISK</Main >
+                  <Main onClick={changeBase} value="NOK">NOK</Main >
+                  <Main onClick={changeBase} value="HRK">HRK</Main >
+                  <Main onClick={changeBase} value="RUB">RUB</Main >
+                  <Main onClick={changeBase} value="TRY">TRY</Main >
+                  <Main onClick={changeBase} value="AUD">AUD</Main >
+                  <Main onClick={changeBase} value="BRL">BRL</Main >
+                  <Main onClick={changeBase} value="CAD">CAD</Main >
+                  <Main onClick={changeBase} value="CNY">CNY</Main >
+                  <Main onClick={changeBase} value="HKD">HKD</Main >
+                  <Main onClick={changeBase} value="IDR">IDR</Main >
+                  <Main onClick={changeBase} value="ILS">ILS</Main >
+                  <Main onClick={changeBase} value="INR">INR</Main >
+                  <Main onClick={changeBase} value="KRW">KRW</Main >
+                  <Main onClick={changeBase} value="MXN">MXN</Main >
+                  <Main onClick={changeBase} value="MYR">MYR</Main >
+                  <Main onClick={changeBase} value="NZD">NZD</Main >
+                  <Main onClick={changeBase} value="PHP">PHP</Main >
+                  <Main onClick={changeBase} value="SGD">SGD</Main >
+                  <Main onClick={changeBase} value="THB">THB</Main >
+                  <Main onClick={changeBase} value="ZAR">ZAR</Main >
+                  <Main onClick={changeBase} value="EUR">EUR</Main >
+                </DropdownContent>
+              </DropdownMenu>}
+          </div>
+        </h2>
+        <h2 onClick={toggle}>
+          <div className="toggle">
+            {toggleState ? <span> Target Currency</span> :
+              <DropdownMenu>
+                <span >
+                  Target Currency
         </span>
-          <DropdownContent>
-            <Second onClick={changeTarget} value="USD">USD</Second >
-            <Second onClick={changeTarget} value="JPY">JPY</Second >
-            <Second onClick={changeTarget} value="BGN">BGN</Second >
-            <Second onClick={changeTarget} value="CZK">CZK</Second >
-            <Second onClick={changeTarget} value="DKK">DKK</Second >
-            <Second onClick={changeTarget} value="GBP">GBP</Second >
-            <Second onClick={changeTarget} value="HUF">HUF</Second >
-            <Second onClick={changeTarget} value="PLN">PLN</Second >
-            <Second onClick={changeTarget} value="RON">RON</Second >
-            <Second onClick={changeTarget} value="SEK">SEK</Second >
-            <Second onClick={changeTarget} value="CHF">CHF</Second >
-            <Second onClick={changeTarget} value="ISK">ISK</Second >
-            <Second onClick={changeTarget} value="NOK">NOK</Second >
-            <Second onClick={changeTarget} value="HRK">HRK</Second >
-            <Second onClick={changeTarget} value="RUB">RUB</Second >
-            <Second onClick={changeTarget} value="TRY">TRY</Second >
-            <Second onClick={changeTarget} value="AUD">AUD</Second >
-            <Second onClick={changeTarget} value="BRL">BRL</Second >
-            <Second onClick={changeTarget} value="CAD">CAD</Second >
-            <Second onClick={changeTarget} value="CNY">CNY</Second >
-            <Second onClick={changeTarget} value="HKD">HKD</Second >
-            <Second onClick={changeTarget} value="IDR">IDR</Second >
-            <Second onClick={changeTarget} value="ILS">ILS</Second >
-            <Second onClick={changeTarget} value="INR">INR</Second >
-            <Second onClick={changeTarget} value="KRW">KRW</Second >
-            <Second onClick={changeTarget} value="MXN">MXN</Second >
-            <Second onClick={changeTarget} value="MYR">MYR</Second >
-            <Second onClick={changeTarget} value="NZD">NZD</Second >
-            <Second onClick={changeTarget} value="PHP">PHP</Second >
-            <Second onClick={changeTarget} value="SGD">SGD</Second >
-            <Second onClick={changeTarget} value="THB">THB</Second >
-            <Second onClick={changeTarget} value="ZAR">ZAR</Second >
-            <Second onClick={changeTarget} value="EUR">EUR</Second >
-          </DropdownContent>
-        </DropdownMenu>
+                <DropdownContent>
+                  <Second onClick={changeTarget} value="USD">USD</Second >
+                  <Second onClick={changeTarget} value="JPY">JPY</Second >
+                  <Second onClick={changeTarget} value="BGN">BGN</Second >
+                  <Second onClick={changeTarget} value="CZK">CZK</Second >
+                  <Second onClick={changeTarget} value="DKK">DKK</Second >
+                  <Second onClick={changeTarget} value="GBP">GBP</Second >
+                  <Second onClick={changeTarget} value="HUF">HUF</Second >
+                  <Second onClick={changeTarget} value="PLN">PLN</Second >
+                  <Second onClick={changeTarget} value="RON">RON</Second >
+                  <Second onClick={changeTarget} value="SEK">SEK</Second >
+                  <Second onClick={changeTarget} value="CHF">CHF</Second >
+                  <Second onClick={changeTarget} value="ISK">ISK</Second >
+                  <Second onClick={changeTarget} value="NOK">NOK</Second >
+                  <Second onClick={changeTarget} value="HRK">HRK</Second >
+                  <Second onClick={changeTarget} value="RUB">RUB</Second >
+                  <Second onClick={changeTarget} value="TRY">TRY</Second >
+                  <Second onClick={changeTarget} value="AUD">AUD</Second >
+                  <Second onClick={changeTarget} value="BRL">BRL</Second >
+                  <Second onClick={changeTarget} value="CAD">CAD</Second >
+                  <Second onClick={changeTarget} value="CNY">CNY</Second >
+                  <Second onClick={changeTarget} value="HKD">HKD</Second >
+                  <Second onClick={changeTarget} value="IDR">IDR</Second >
+                  <Second onClick={changeTarget} value="ILS">ILS</Second >
+                  <Second onClick={changeTarget} value="INR">INR</Second >
+                  <Second onClick={changeTarget} value="KRW">KRW</Second >
+                  <Second onClick={changeTarget} value="MXN">MXN</Second >
+                  <Second onClick={changeTarget} value="MYR">MYR</Second >
+                  <Second onClick={changeTarget} value="NZD">NZD</Second >
+                  <Second onClick={changeTarget} value="PHP">PHP</Second >
+                  <Second onClick={changeTarget} value="SGD">SGD</Second >
+                  <Second onClick={changeTarget} value="THB">THB</Second >
+                  <Second onClick={changeTarget} value="ZAR">ZAR</Second >
+                  <Second onClick={changeTarget} value="EUR">EUR</Second >
+                </DropdownContent>
+              </DropdownMenu>}
+          </div>
+        </h2>
         <br></br>
         <form>
           <Input
@@ -239,5 +252,3 @@ function App() {
   );
 }
 export default App;
-
-
