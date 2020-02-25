@@ -27,10 +27,11 @@ const Red = styled.option`
   border:2px solid red;
   width: 35px;
   height:20px;
-  margin-left:35px;
+  margin-left:235px;
 `
 const Input = styled.input`
-  margin-left:100px;
+  margin-left:275px;
+  width: 175px;
 `
 const Div = styled.div`
   border: 4px solid #4b6286;
@@ -55,9 +56,7 @@ const H2 = styled.h2`
   display:flex;
   text-align:center;
 `
-const H1 = styled.h1`
-  text-decoration:underline;
-`
+
 
 function App() {
   const [currency, setCurrency] = useState({
