@@ -20,7 +20,6 @@ It's important to note, that these conversions are run off of European rates of 
 - - - -
 #### Built With ####
 * axios
-* bootstrap
 * react
 * react-dom
 * react-scripts
@@ -29,7 +28,8 @@ It's important to note, that these conversions are run off of European rates of 
 - - - -
 
 ## Links of Note ##
-Deployed link is found [Here](https://mmsg-fe-mj5zrwshs.now.sh).
+Deployed link is found [Here](https://mmsg-fe.herokuapp.com/).
+* This works best in chrome browsers.*
 Axios Call is made to custom endpoint found [Here](https://mmsg-project.herokuapp.com)
 
 Copy of the backend Repo: https://github.com/a-soren/MMSG-project
